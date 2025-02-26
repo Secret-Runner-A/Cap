@@ -162,6 +162,9 @@ jobs:
           echo "Xcode:" && xcodebuild -version
           echo "Clang:" && clang --version
           echo "Xcode Developer Directory:" && xcode-select -p
+          echo "Available SDKs:" && xcodebuild -showsdks
+          echo "SDKROOT:" && echo "$SDKROOT"
+          echo "Installed SDKs:" && ls -l /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
           echo "Environment Variables:" && env
 
 
