@@ -150,18 +150,20 @@ jobs:
       - name: Output .env file
         run: cat apps/desktop/.env
 
-      - name: Debug env
-        run: echo "OS Info:" && uname -a && \
-            echo "macOS:" && sw_vers && \
-            echo "OS Architecture:" && uname -m && \
-            echo "Cargo:" && cargo --version && \
-            echo "Rust:" && rustc --version && \
-            echo "pnpm:" && pnpm --version && \
-            echo "Node:" && node --version && \
-            echo "Xcode:" && xcodebuild -version && \
-            echo "Clang:" && clang --version && \
-            echo "Xcode Developer Directory:" && xcode-select -p && \
-            echo "Environment Variables:" && env
+      - name: Print Environment Info
+        run: |
+          echo "OS Info:" && uname -a
+          echo "macOS:" && sw_vers
+          echo "OS Architecture:" && uname -m
+          echo "Cargo:" && cargo --version
+          echo "Rust:" && rustc --version
+          echo "pnpm:" && pnpm --version
+          echo "Node:" && node --version
+          echo "Xcode:" && xcodebuild -version
+          echo "Clang:" && clang --version
+          echo "Xcode Developer Directory:" && xcode-select -p
+          echo "Environment Variables:" && env
+
 
       - name: Build app
         working-directory: apps/desktop
